@@ -4,10 +4,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class phonecontroller extends CI_Controller {
 
 	public function loadpage($value){
-		$this->load->view('template/front/header');
-		$this->load->view('template/front/sidebar');
+		 $this->load->view('template/front/header');
+		 $this->load->view('template/front/sidebar');
 		$this->load->view($value['view'],$value['result']);
-		$this->load->view('template/front/footer');
+		 $this->load->view('template/front/footer');
 	}
 
 	public function index()
@@ -17,7 +17,7 @@ class phonecontroller extends CI_Controller {
 			'result' => array(
 				'data' => $query
 			),
-			'view'=>'test1'
+			'view'=>'showphone'
 		);
 		$this->loadpage($value);
 	}
@@ -43,13 +43,18 @@ class phonecontroller extends CI_Controller {
 		}
 
 
-	public function  addstudent()
+	public function  addphone()
 	{
+
+		$type=$this->pmodel->read_province();
 		$value = array(
-			'result' => array(),
-			'view'=>'insert'
-		);
-		$this->loadpage($value);
+		'result' => array(
+				'tb_type'=>$type
+		),
+		'view'=>'insert'
+
+	);
+	$this->loadpage($value);
 	}
 
 
@@ -65,25 +70,20 @@ class phonecontroller extends CI_Controller {
 		'view'=>'update'
 	);
 	$this->loadpage($value);
-
-
-
-
-
 	}
-	// // public function  edit()
-	// // {
-	// // 	$editdata=$this->input->post();
-	// // 	if (!empty($_FILES['s_image']['name'])) {
-	// // 		$pathinfo = pathinfo($_FILES['s_image']['name'],PATHINFO_EXTENSION);
-	// // 		$new_file = date('YmdHis').".".$pathinfo;
-	// //
-	// // 		move_uploaded_file($_FILES['s_image']['tmp_name'],"image/".$new_file);
-	// // 		$editdata['s_image']=$new_file;
-	// // 	}
-	// // $this->showtest->update($editdata);
-	// // redirect('phonecontroller');
-	// // //print_r($drop);
+	//  public function  edit()
+	// {
+	//  	$editdata=$this->input->post();
+	// 	if (!empty($_FILES['s_image']['name'])) {
+	// 		$pathinfo = pathinfo($_FILES['s_image']['name'],PATHINFO_EXTENSION);
+	// 		$new_file = date('YmdHis').".".$pathinfo;
+	//
+	// 		move_uploaded_file($_FILES['s_image']['tmp_name'],"image/".$new_file);
+	// 		$editdata['s_image']=$new_file;
+	// 	}
+	// 		$this->showtest->update($editdata);
+ // 			redirect('phonecontroller');
+	//
 	//
 	// }
 

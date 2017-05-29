@@ -8,10 +8,18 @@ class  phonemodel  extends CI_Model {
 	{
 
 		$a=$this->db
+    ->join('tb_type','tb_phone.type_id =  tb_type.type_id','left')
 		->get('tb_phone')
 		->result_array();
     return $a;
 	}
+  public function read_province(){
+    $db=$this->db
+  ->get('tb_type')
+  ->result_array();
+  return $db;
+  }
+
   public function insert($insert)
   {
     //print_r($adddata);
