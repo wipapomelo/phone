@@ -14,10 +14,10 @@
 							<table class="table table-hover" >
 							<tr>
 
-							<tr><td><i class="glyphicon glyphicon-user"></i> First name: </td>   <td>  <input type="text" class="form-control col-sm-1 "  name="p_name"><br></td></tr>
+							<tr><td><i class="glyphicon glyphicon-user"></i> ราคา: </td>   <td>  <input type="text" class="form-control col-sm-1 "  name="price"><br></td></tr>
               <td><i class="glyphicon glyphicon-user"></i> ยี้ห้อ : </td>
               <td><select name="type_id">
-                <?php foreach ($province as $key): ?>
+                <?php foreach ($type as $key): ?>
                     <?php if ($key['type_id']==$data[0]['type_id']): ?>
                         <option selected  value='<?php echo $key['type_id']?>' ><?php echo $key['type_name']?></option>
                       <?php else: ?>

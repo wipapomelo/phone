@@ -14,9 +14,10 @@
           <thead >
             <tr >
               <th class="t"><?php echo "รหัส" ?></th>
-              <th class="t"><?php echo "ชื่อ" ?></th>
               <th class="t"><?php echo "ยี้ห้อ" ?></th>
-              <!-- <th class="t"><?php echo "รูป" ?></th> -->
+              <th class="t"><?php echo "ราคา" ?></th>
+
+              <th class="t"><?php echo "รูป" ?></th>
               <th class="t"><?php echo "จัดการข้อมูล" ?></th>
             </tr>
           </thead>
@@ -27,7 +28,7 @@
               <td><?php echo $row['id_phone'] ?></td>
               <td><?php echo $row['price'] ?></td>
               <td> <?php echo $row['type_name'] ?></td>
-              <!-- <td><img src="<?php echo base_url('image/'.$row['p_img']) ?>"style="width:150px;"></td> -->
+              <td><img src="<?php echo base_url('image/'.$row['img']) ?>"style="width:150px;"></td>
               <td><a class="btn btn-danger"  href="<?php echo site_url('phonecontroller/deletedata/'.$row['id_phone'] ) ?> "><i class="glyphicon glyphicon-remove"></i>ลบ</a> |
                 <a class="btn btn-warning" href="<?php echo site_url('phonecontroller/update/'.$row['id_phone']) ?> "><i class="glyphicon glyphicon-pencil"></i>แก้ไข</a></td>
               </tr> <br>

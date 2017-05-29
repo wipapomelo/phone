@@ -37,7 +37,12 @@ class phonecontroller extends CI_Controller {
 		public function insert()
 		{
 			$adddata=$this->input->post();
+			$pathinfo = pathinfo($_FILES['img']['name'],PATHINFO_EXTENSION);
+			$new_file = date('YmdHis').".".$pathinfo;
 
+			move_uploaded_file($_FILES['img']['tmp_name'],"image/".$new_file);
+
+			$adddata['img']=$new_file;
 	    $this->phonemodel->insert($adddata);
 	    redirect('phonecontroller');
 		}
@@ -49,7 +54,7 @@ class phonecontroller extends CI_Controller {
 		$type=$this->pmodel->read_province();
 		$value = array(
 		'result' => array(
-				'tb_type'=>$type
+				'type'=>$type
 		),
 		'view'=>'insert'
 
@@ -71,21 +76,21 @@ class phonecontroller extends CI_Controller {
 	);
 	$this->loadpage($value);
 	}
-	//  public function  edit()
-	// {
-	//  	$editdata=$this->input->post();
-	// 	if (!empty($_FILES['s_image']['name'])) {
-	// 		$pathinfo = pathinfo($_FILES['s_image']['name'],PATHINFO_EXTENSION);
-	// 		$new_file = date('YmdHis').".".$pathinfo;
-	//
-	// 		move_uploaded_file($_FILES['s_image']['tmp_name'],"image/".$new_file);
-	// 		$editdata['s_image']=$new_file;
-	// 	}
-	// 		$this->showtest->update($editdata);
- // 			redirect('phonecontroller');
-	//
-	//
-	// }
+	 public function  edit()
+ {
+	  	$editdata=$this->input->post();
+	 	if (!empty($_FILES['s_image']['name'])) {
+	 		$pathinfo = pathinfo($_FILES['s_image']['name'],PATHINFO_EXTENSION);
+			$new_file = date('YmdHis').".".$pathinfo;
+
+	 		move_uploaded_file($_FILES['s_image']['tmp_name'],"image/".$new_file);
+			$editdata['s_image']=$new_file;
+		}
+ 		$this->showtest->update($editdata);
+ 			redirect('phonecontroller');
+
+
+ }
 
 	public function  deletedata()
 	{
