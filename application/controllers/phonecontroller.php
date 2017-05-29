@@ -4,10 +4,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class phonecontroller extends CI_Controller {
 
 	public function loadpage($value){
-		 $this->load->view('template/front/header');
-		 $this->load->view('template/front/sidebar');
-		$this->load->view($value['view'],$value['result']);
+
+		  $this->load->view('template/front/header');
+		  $this->load->view('template/front/sidebar');
+		 $this->load->view($value['view'],$value['result']);
+
 		 $this->load->view('template/front/footer');
+
 	}
 
 	public function index()
@@ -40,7 +43,7 @@ class phonecontroller extends CI_Controller {
 			$pathinfo = pathinfo($_FILES['img']['name'],PATHINFO_EXTENSION);
 			$new_file = date('YmdHis').".".$pathinfo;
 
-			move_uploaded_file($_FILES['img']['tmp_name'],"image/".$new_file);
+			move_uploaded_file($_FILES['img']['tmp_name'],"assets/imgphone/".$new_file);
 
 			$adddata['img']=$new_file;
 	    $this->phonemodel->insert($adddata);
@@ -83,12 +86,12 @@ class phonecontroller extends CI_Controller {
 	 public function  edit()
  {
 	  	$editdata=$this->input->post();
-	 	if (!empty($_FILES['s_image']['name'])) {
-	 		$pathinfo = pathinfo($_FILES['s_image']['name'],PATHINFO_EXTENSION);
+	 	if (!empty($_FILES['img']['name'])) {
+	 		$pathinfo = pathinfo($_FILES['img']['name'],PATHINFO_EXTENSION);
 			$new_file = date('YmdHis').".".$pathinfo;
 
-	 		move_uploaded_file($_FILES['s_image']['tmp_name'],"image/".$new_file);
-			$editdata['s_image']=$new_file;
+	 		move_uploaded_file($_FILES['img']['tmp_name'],"assets/imgphone/".$new_file);
+			$editdata['img']=$new_file;
 		}
  		$this->phonemodel->update($editdata);
  			redirect('phonecontroller');

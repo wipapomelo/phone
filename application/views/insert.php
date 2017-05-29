@@ -25,7 +25,7 @@
                       <?php endif; ?>
               <?php endforeach; ?>
                   </select></td>
-							<!-- <tr><td><i class="glyphicon glyphicon-picture"></i>  image : </td> <td> <input type="file"   name="p_img" class="btn btn-primary"><br></td> -->
+							<tr><td><i class="glyphicon glyphicon-picture"></i>  image : </td> <td> <input type="file"   name="img" class="btn btn-primary"><br></td>
 							</tr>
 							</table>
 							<input type="submit" value="Submit" class="btn btn-success"><br><br>

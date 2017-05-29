@@ -33,7 +33,7 @@
                     <?php endforeach; ?>
                   </select></td></tr>
                   <tr><td><i class="glyphicon glyphicon-picture"></i>image :</td><td><input type="file" name="img" class="btn btn-success"><br></td></tr>
-                  <tr><td><img src="<?php echo base_url('image/'.$data[0]['img']) ?>"width="100px;"></td></tr>
+                  <tr><td><img src="<?php echo base_url('assets/imgphone/'.$data[0]['img']) ?>"width="100px;"></td></tr>
                 </tr>
               </table>
               <input type="submit" value="Submit" class="btn btn-success"><br><br>
