@@ -3,19 +3,101 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class phonecontroller extends CI_Controller {
 
+	public function loadpage($value){
+		$this->load->view('template/front/header');
+		$this->load->view('template/front/sidebar');
+		$this->load->view($value['view'],$value['result']);
+		$this->load->view('template/front/footer');
+	}
+
 	public function index()
 	{
-		// $this->load->view('showphone');
-
-
 		$query=$this->phonemodel->lodedata();
-		print_r($query);
+		$value = array(
+			'result' => array(
+				'data' => $query
+			),
+			'view'=>'test1'
+		);
+		$this->loadpage($value);
+	}
+
+
+		public function test()
+		{
+
+			$data=$this->phonemodel->lodedata();
+			$value=array(
+				'data'=>$data
+			);
+			$this->load->view('showphone',$value);
+		}
+
+
+		public function insert()
+		{
+			$adddata=$this->input->post();
+
+	    $this->phonemodel->insert($adddata);
+	    redirect('phonecontroller');
+		}
+
+
+	public function  addstudent()
+	{
+		$value = array(
+			'result' => array(),
+			'view'=>'insert'
+		);
+		$this->loadpage($value);
+	}
+
+
+
+	public function  update()
+	{
+	$id=$this->uri->segment(3);
+	$query=$this->phonemodel->lodedatabyid($id);
+	$value=array(
+		'result'=>array(
+			'data'=>$query
+		),
+		'view'=>'update'
+	);
+	$this->loadpage($value);
 
 
 
 
 
 	}
+	// // public function  edit()
+	// // {
+	// // 	$editdata=$this->input->post();
+	// // 	if (!empty($_FILES['s_image']['name'])) {
+	// // 		$pathinfo = pathinfo($_FILES['s_image']['name'],PATHINFO_EXTENSION);
+	// // 		$new_file = date('YmdHis').".".$pathinfo;
+	// //
+	// // 		move_uploaded_file($_FILES['s_image']['tmp_name'],"image/".$new_file);
+	// // 		$editdata['s_image']=$new_file;
+	// // 	}
+	// // $this->showtest->update($editdata);
+	// // redirect('phonecontroller');
+	// // //print_r($drop);
+	//
+	// }
+
+	public function  deletedata()
+	{
+
+	$drop=$this->uri->segment(3);
+	$this->phonemodel->deletedata($drop);
+	//print_r($drop);
+
+	redirect('phonecontroller');
+	}
+
+
 
 
 
