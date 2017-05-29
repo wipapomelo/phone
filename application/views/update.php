@@ -20,8 +20,8 @@
             <tr><input type="hidden" name="id_phone" value="<?php echo $data[0]['id_phone'] ?>"><br></tr>
             <tr><td><i class="glyphicon glyphicon-user"></i> ราคา : </td><td><input type="text" name="price" value="<?php echo $data[0]['price'] ?>"><br></td></tr>
             <tr><td>ยี้ห้อ : </td>
-              <td><select name="id_province">
-                <?php foreach ($province as $key): ?>
+              <td><select name="type_id">
+                <?php foreach ($type as $key): ?>
 
                     <?php if ($key['type_id']==$data[0]['type_id']): ?>
                         <option selected  value='<?php echo $key['type_id']?>' ><?php echo $key['type_name']?></option>

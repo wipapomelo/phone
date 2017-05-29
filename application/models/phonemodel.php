@@ -13,7 +13,7 @@ class  phonemodel  extends CI_Model {
 		->result_array();
     return $a;
 	}
-  public function read_province(){
+  public function read_type(){
     $db=$this->db
   ->get('tb_type')
   ->result_array();

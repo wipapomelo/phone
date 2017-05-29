@@ -5,8 +5,6 @@
     <div class="row">
       <div class="col-lg-12">
         <h2>รายชื่อ</h2>
-
-
         <a class="btn btn-success"  href="<?php echo site_url('phonecontroller/addphone') ?> "><i class="glyphicon glyphicon-plus"> </i> </a>
 
         <table  class="table table-hover"  >
@@ -14,9 +12,8 @@
           <thead >
             <tr >
               <th class="t"><?php echo "รหัส" ?></th>
-              <th class="t"><?php echo "ยี้ห้อ" ?></th>
               <th class="t"><?php echo "ราคา" ?></th>
-
+              <th class="t"><?php echo "ยี่ห้อ" ?></th>
               <th class="t"><?php echo "รูป" ?></th>
               <th class="t"><?php echo "จัดการข้อมูล" ?></th>
             </tr>

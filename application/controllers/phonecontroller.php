@@ -51,7 +51,7 @@ class phonecontroller extends CI_Controller {
 	public function  addphone()
 	{
 
-		$type=$this->pmodel->read_province();
+		$type=$this->phonemodel->read_type();
 		$value = array(
 		'result' => array(
 				'type'=>$type
@@ -66,16 +66,20 @@ class phonecontroller extends CI_Controller {
 
 	public function  update()
 	{
+		$type=$this->phonemodel->read_type();
 	$id=$this->uri->segment(3);
 	$query=$this->phonemodel->lodedatabyid($id);
 	$value=array(
 		'result'=>array(
-			'data'=>$query
+			'data'=>$query,
+				'type'=>$type
 		),
 		'view'=>'update'
 	);
 	$this->loadpage($value);
 	}
+
+
 	 public function  edit()
  {
 	  	$editdata=$this->input->post();
@@ -86,7 +90,7 @@ class phonecontroller extends CI_Controller {
 	 		move_uploaded_file($_FILES['s_image']['tmp_name'],"image/".$new_file);
 			$editdata['s_image']=$new_file;
 		}
- 		$this->showtest->update($editdata);
+ 		$this->phonemodel->update($editdata);
  			redirect('phonecontroller');
 
 
