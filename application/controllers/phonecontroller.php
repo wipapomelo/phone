@@ -9,6 +9,7 @@ class phonecontroller extends CI_Controller {
 
 
 		$query=$this->phonemodel->lodedata();
+		print_r($query);
 
 
 
