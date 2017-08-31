@@ -54,10 +54,10 @@ class phonecontroller extends CI_Controller {
 	public function  addphone()
 	{
 
-		$type=$this->phonemodel->read_type();
+		// $type=$this->phonemodel->read_type();
 		$value = array(
 		'result' => array(
-				'type'=>$type
+				// 'type'=>$type
 		),
 		'view'=>'insert'
 
@@ -69,13 +69,13 @@ class phonecontroller extends CI_Controller {
 
 	public function  update()
 	{
-		$type=$this->phonemodel->read_type();
+		// $type=$this->phonemodel->read_type();
 	$id=$this->uri->segment(3);
 	$query=$this->phonemodel->lodedatabyid($id);
 	$value=array(
 		'result'=>array(
 			'data'=>$query,
-				'type'=>$type
+				// 'type'=>$type
 		),
 		'view'=>'update'
 	);
